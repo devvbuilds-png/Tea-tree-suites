@@ -23,6 +23,8 @@
     --text-muted: #5a5a52;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Jost', sans-serif;
+    --nav-height: 92px;
+    --nav-height-scrolled: 72px;
   }
 
   html { scroll-behavior: smooth; }
@@ -32,6 +34,15 @@
     background: var(--cream);
     color: var(--text);
     overflow-x: hidden;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
   }
 
   /* NAV */
@@ -44,11 +55,13 @@
     align-items: center;
     padding: 1.5rem 4rem;
     transition: background 0.4s, padding 0.4s;
+    min-height: var(--nav-height);
   }
   nav.scrolled {
     background: rgba(26,46,31,0.97);
     padding: 1rem 4rem;
     backdrop-filter: blur(8px);
+    min-height: var(--nav-height-scrolled);
   }
   .nav-logo {
     font-family: var(--serif);
@@ -73,6 +86,32 @@
     transition: color 0.3s;
   }
   .nav-links a:hover { color: var(--gold); }
+  .nav-toggle {
+    display: none;
+    border: 1px solid rgba(201,169,110,0.45);
+    background: rgba(10,22,14,0.22);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .nav-toggle span,
+  .nav-toggle::before,
+  .nav-toggle::after {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav-toggle span { margin: 5px 0; }
+  nav.menu-open .nav-toggle span { opacity: 0; }
+  nav.menu-open .nav-toggle::before { transform: translateY(6.5px) rotate(45deg); }
+  nav.menu-open .nav-toggle::after { transform: translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu { display: none; }
   .nav-cta {
     background: transparent;
     border: 1px solid var(--gold);
@@ -93,6 +132,7 @@
     display: flex;
     align-items: flex-end;
     overflow: hidden;
+    padding-top: var(--nav-height);
   }
   .hero-bg {
     position: absolute;
@@ -284,7 +324,10 @@
   }
 
   /* SECTION BASE */
-  section { padding: 7rem 6rem; }
+  section {
+    padding: clamp(4.5rem, 8vw, 7rem) clamp(1.25rem, 6vw, 6rem);
+    scroll-margin-top: calc(var(--nav-height) + 1rem);
+  }
   .section-label {
     font-size: 0.65rem;
     letter-spacing: 0.3em;
@@ -321,6 +364,7 @@
   .about-visual {
     position: relative;
     height: 550px;
+    min-height: 0;
   }
   .about-img-main {
     position: absolute;
@@ -455,6 +499,7 @@
     transition: transform 0.5s ease;
   }
   .room-card:hover .room-card-bg { transform: scale(1.04); }
+  .room-card:focus-within .room-card-bg { transform: scale(1.04); }
   .room-card-bg.r1 { background: linear-gradient(135deg, #3d6b45 0%, #2d5a35 100%); }
   .room-card-bg.r2 { background: linear-gradient(135deg, #4a5a3a 0%, #3a4a2a 100%); }
   .room-card-bg.r3 { background: linear-gradient(135deg, #2a4e3a 0%, #1e3828 100%); }
@@ -539,6 +584,7 @@
     transition: background 0.3s;
   }
   .amenity-item:hover { background: var(--cream); }
+  .amenity-item:focus-within { background: var(--cream); }
   .amenity-item:nth-child(4n) { border-right: none; }
   .amenity-icon {
     font-size: 1.8rem;
@@ -744,13 +790,73 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 1.2rem 2rem; }
-    nav.scrolled { padding: 0.8rem 2rem; }
+    :root {
+      --nav-height: 78px;
+      --nav-height-scrolled: 68px;
+    }
+    nav { padding: 1rem 1.25rem; }
+    nav.scrolled { padding: 0.8rem 1.25rem; }
     .nav-links { display: none; }
+    .nav-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+    .mobile-menu {
+      display: flex;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem 1.25rem 1.5rem;
+      background: rgba(17,26,19,0.98);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(201,169,110,0.12);
+      transform: translateY(-110%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 95;
+    }
+    nav.menu-open + .mobile-menu {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+      padding: 0.95rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.75rem;
+      padding: 0.95rem 1.2rem !important;
+      border-bottom: none;
+    }
     section { padding: 5rem 2rem; }
     #hero { min-height: 100svh; }
+    .hero-lines::before,
+    .hero-lines::after {
+      right: 1.75rem;
+      top: 11rem;
+      height: 24%;
+    }
+    .hero-lines::after { right: calc(1.75rem + 20px); }
     .hero-content { bottom: 3rem; left: 2rem; right: 2rem; max-width: none; }
     .hero-scroll-hint { right: 2rem; }
+    .hero-actions { flex-wrap: wrap; }
+    .btn-primary,
+    .btn-ghost,
+    .btn-large { min-height: 48px; }
     #about, #location { grid-template-columns: 1fr; gap: 3rem; }
     .about-visual { height: 320px; }
     .rooms-grid { grid-template-columns: 1fr; }
@@ -768,6 +874,157 @@
     #cta { padding: 4rem 2rem; }
     footer { padding: 2.5rem 2rem; }
   }
+  @media (max-width: 640px) {
+    .nav-logo { font-size: 1.12rem; }
+    #hero {
+      min-height: 100svh;
+      min-height: 100dvh;
+    }
+    .hero-content {
+      bottom: 2rem;
+      left: 1.25rem;
+      right: 1.25rem;
+    }
+    .hero-eyebrow {
+      gap: 0.65rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      margin-bottom: 1rem;
+    }
+    .hero-eyebrow::before { width: 24px; }
+    .hero-title {
+      font-size: clamp(2.45rem, 12vw, 4rem);
+      line-height: 0.98;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      max-width: none;
+      font-size: 0.84rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+    .btn-primary,
+    .btn-ghost,
+    .btn-large {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 1.15rem;
+    }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.95rem 1.15rem;
+    }
+    .hero-scroll-hint,
+    .hero-lines { display: none; }
+    .stat-bar {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .stat-item {
+      max-width: none;
+      padding: 1.35rem 1rem;
+    }
+    .stat-item:nth-child(2n) { border-right: none; }
+    .section-label {
+      gap: 0.7rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+    }
+    .section-label::before { width: 22px; }
+    .about-visual {
+      height: auto;
+      aspect-ratio: 4 / 5;
+    }
+    .about-img-main {
+      width: 100%;
+      height: 72%;
+    }
+    .about-img-accent {
+      width: 62%;
+      height: 42%;
+      border-width: 4px;
+    }
+    .about-body,
+    .location-body {
+      font-size: 0.84rem;
+      line-height: 1.8;
+    }
+    .about-features {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    .rooms-header { margin-bottom: 2.5rem; }
+    .room-card {
+      min-height: 320px;
+      padding: 1.5rem;
+    }
+    .room-badge {
+      top: 1rem;
+      right: 1rem;
+    }
+    .room-name { font-size: 1.4rem; }
+    .amenities-intro { margin-bottom: 2rem; }
+    .amenities-grid { grid-template-columns: 1fr; }
+    .amenity-item {
+      border-right: none;
+      padding: 1.5rem 1.15rem;
+    }
+    .location-map { height: 280px; }
+    .location-points li {
+      align-items: flex-start;
+      line-height: 1.6;
+    }
+    #cta {
+      padding: 3.25rem 1.25rem;
+      gap: 1.5rem;
+    }
+    #cta::before { display: none; }
+    .cta-sub { line-height: 1.7; }
+    .cta-actions {
+      width: 100%;
+      align-items: stretch;
+    }
+    .cta-phone { text-align: center; }
+    footer { gap: 1rem; }
+    .footer-address,
+    .footer-copy { line-height: 1.7; }
+  }
+  @media (max-width: 420px) {
+    nav {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    section,
+    #rooms,
+    #amenities,
+    #location,
+    #cta,
+    footer {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .hero-content {
+      left: 1rem;
+      right: 1rem;
+      bottom: 1.5rem;
+    }
+    .stat-num { font-size: 1.8rem; }
+    .price-unit { display: block; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -782,7 +1039,17 @@
     <li><a href="#location">Location</a></li>
     <li><a href="#cta" class="nav-cta">Book Now</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+    <span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#rooms">Rooms</a>
+  <a href="#amenities">Amenities</a>
+  <a href="#location">Location</a>
+  <a href="#cta" class="nav-cta">Book Now</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -999,8 +1266,31 @@
 <script>
   // Nav scroll
   const nav = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const setMenuState = (open) => {
+    nav.classList.toggle('menu-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open && window.innerWidth <= 900 ? 'hidden' : '';
+  };
+
+  navToggle.addEventListener('click', () => {
+    setMenuState(!nav.classList.contains('menu-open'));
+  });
+
+  mobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuState(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      setMenuState(false);
+    }
   });
 
   // Scroll reveal
