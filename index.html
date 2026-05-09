@@ -842,7 +842,7 @@
       padding: 0.95rem 1.2rem !important;
       border-bottom: none;
     }
-    section { padding: 5rem 2rem; }
+    section { padding: 4.25rem 1.5rem; }
     #hero { min-height: 100svh; }
     .hero-lines::before,
     .hero-lines::after {
@@ -851,28 +851,75 @@
       height: 24%;
     }
     .hero-lines::after { right: calc(1.75rem + 20px); }
-    .hero-content { bottom: 3rem; left: 2rem; right: 2rem; max-width: none; }
+    .hero-content { bottom: 2.25rem; left: 1.5rem; right: 1.5rem; max-width: none; }
     .hero-scroll-hint { right: 2rem; }
-    .hero-actions { flex-wrap: wrap; }
+    .hero-actions {
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
     .btn-primary,
     .btn-ghost,
     .btn-large { min-height: 48px; }
-    #about, #location { grid-template-columns: 1fr; gap: 3rem; }
-    .about-visual { height: 320px; }
+    #about, #location { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-visual { height: 300px; }
     .rooms-grid { grid-template-columns: 1fr; }
     .amenities-grid { grid-template-columns: repeat(2, 1fr); }
     #cta { flex-direction: column; text-align: center; }
-    .cta-actions { align-items: center; }
+    .cta-actions {
+      width: 100%;
+      align-items: stretch;
+    }
+    .btn-large { width: 100%; }
     footer { flex-direction: column; text-align: center; }
     .footer-copy { text-align: center; }
-    .stat-bar { flex-wrap: wrap; }
-    .stat-item { max-width: 50%; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .stat-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stat-item {
+      max-width: none;
+      padding: 1.4rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:nth-child(2n) { border-right: none; }
+    .stat-item:nth-last-child(-n+2) { border-bottom: none; }
     .rooms-header { flex-direction: column; gap: 1rem; }
-    .rooms-sub { text-align: left; }
-    #rooms, #amenities { padding: 5rem 2rem; }
-    #location { padding: 5rem 2rem; }
-    #cta { padding: 4rem 2rem; }
-    footer { padding: 2.5rem 2rem; }
+    .rooms-sub {
+      text-align: left;
+      max-width: none;
+    }
+    .room-card {
+      min-height: 340px;
+      padding: 1.75rem;
+    }
+    .amenity-item { padding: 2rem 1.2rem; }
+    .location-map { height: 340px; }
+    #rooms, #amenities { padding: 4.5rem 1.5rem; }
+    #location { padding: 4.5rem 1.5rem; }
+    #cta { padding: 3.5rem 1.5rem; }
+    footer { padding: 2.25rem 1.5rem; }
+  }
+  @media (max-width: 760px) {
+    .hero-content {
+      bottom: 1.75rem;
+      left: 1.25rem;
+      right: 1.25rem;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+    .btn-primary,
+    .btn-ghost,
+    .btn-large {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 1.15rem;
+    }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.2); }
+    .hero-scroll-hint,
+    .hero-lines { display: none; }
+    .amenities-grid { grid-template-columns: 1fr; }
+    .amenity-item { border-right: none; }
   }
   @media (max-width: 640px) {
     .nav-logo { font-size: 1.12rem; }
@@ -881,7 +928,7 @@
       min-height: 100dvh;
     }
     .hero-content {
-      bottom: 2rem;
+      bottom: 1.5rem;
       left: 1.25rem;
       right: 1.25rem;
     }
@@ -903,32 +950,14 @@
       line-height: 1.7;
       margin-bottom: 1.5rem;
     }
-    .hero-actions {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.75rem;
-    }
-    .btn-primary,
-    .btn-ghost,
-    .btn-large {
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem 1.15rem;
-    }
-    .btn-ghost {
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 0.95rem 1.15rem;
-    }
-    .hero-scroll-hint,
-    .hero-lines { display: none; }
+    section { padding: 4rem 1.25rem; }
     .stat-bar {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .stat-item {
       max-width: none;
-      padding: 1.35rem 1rem;
+      padding: 1.15rem 0.85rem;
     }
     .stat-item:nth-child(2n) { border-right: none; }
     .section-label {
@@ -960,29 +989,25 @@
       gap: 0.8rem;
     }
     .rooms-header { margin-bottom: 2.5rem; }
-    .room-card {
-      min-height: 320px;
-      padding: 1.5rem;
-    }
+    .room-card { min-height: 300px; padding: 1.35rem; }
     .room-badge {
       top: 1rem;
       right: 1rem;
     }
     .room-name { font-size: 1.4rem; }
-    .amenities-intro { margin-bottom: 2rem; }
-    .amenities-grid { grid-template-columns: 1fr; }
+    .amenities-intro { margin-bottom: 1.5rem; }
     .amenity-item {
       border-right: none;
-      padding: 1.5rem 1.15rem;
+      padding: 1.25rem 1rem;
     }
-    .location-map { height: 280px; }
+    .location-map { height: 260px; }
     .location-points li {
       align-items: flex-start;
       line-height: 1.6;
     }
     #cta {
-      padding: 3.25rem 1.25rem;
-      gap: 1.5rem;
+      padding: 3rem 1.25rem;
+      gap: 1.25rem;
     }
     #cta::before { display: none; }
     .cta-sub { line-height: 1.7; }
