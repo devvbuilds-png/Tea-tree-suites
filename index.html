@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tea Tree Suites &mdash; Manipal</title>
+<title>Tea Tree Suites — Manipal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -263,7 +263,7 @@
     transition: color 0.3s;
   }
   .btn-ghost:hover { color: var(--gold); }
-  .btn-ghost::after { content: '\2193'; font-size: 1rem; }
+  .btn-ghost::after { content: '↓'; font-size: 1rem; }
 
   .hero-scroll-hint {
     position: absolute;
@@ -746,9 +746,6 @@
     transition: color 0.3s;
   }
   .cta-phone:hover { color: var(--gold); }
-  .mobile-bookbar {
-    display: none;
-  }
 
   /* FOOTER */
   footer {
@@ -878,39 +875,15 @@
     footer { padding: 2.5rem 2rem; }
   }
   @media (max-width: 640px) {
-    body {
-      background:
-        radial-gradient(circle at top, rgba(201,169,110,0.08), transparent 28%),
-        linear-gradient(180deg, #fbf8f3 0%, #f5f0e8 100%);
-    }
     .nav-logo { font-size: 1.12rem; }
-    .mobile-menu {
-      padding: 0.85rem 1rem 1.35rem;
-      gap: 0;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
-    }
-    .mobile-menu a {
-      font-size: 0.74rem;
-      letter-spacing: 0.18em;
-      padding: 0.9rem 0.2rem;
-    }
     #hero {
       min-height: 100svh;
       min-height: 100dvh;
-      align-items: stretch;
     }
     .hero-content {
-      bottom: 1.1rem;
+      bottom: 2rem;
       left: 1.25rem;
       right: 1.25rem;
-      padding: 1.35rem 1.15rem 1.15rem;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(10,22,14,0.3), rgba(10,22,14,0.72));
-      backdrop-filter: blur(14px);
-      box-shadow: 0 28px 80px rgba(0,0,0,0.22);
     }
     .hero-eyebrow {
       gap: 0.65rem;
@@ -926,9 +899,9 @@
     }
     .hero-sub {
       max-width: none;
-      font-size: 0.8rem;
-      line-height: 1.68;
-      margin-bottom: 1.35rem;
+      font-size: 0.84rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
     }
     .hero-actions {
       flex-direction: column;
@@ -952,44 +925,12 @@
     .stat-bar {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-      margin: -2rem 1.25rem 0;
-      padding: 0;
-      background: transparent;
-      position: relative;
-      z-index: 12;
     }
     .stat-item {
       max-width: none;
-      padding: 1.1rem 0.9rem;
-      border: 1px solid rgba(26,46,31,0.08);
-      border-radius: 22px;
-      background: rgba(255,255,255,0.86);
-      box-shadow: 0 18px 44px rgba(24,31,24,0.08);
+      padding: 1.35rem 1rem;
     }
-    .stat-item:nth-child(2n) { border-right: 1px solid rgba(26,46,31,0.08); }
-    .stat-num {
-      font-size: 2rem;
-      margin-bottom: 0.25rem;
-    }
-    .stat-label {
-      font-size: 0.64rem;
-      letter-spacing: 0.16em;
-      line-height: 1.45;
-    }
-    section {
-      padding-top: 4.25rem;
-      padding-bottom: 4.25rem;
-    }
-    #about,
-    #rooms,
-    #amenities,
-    #location {
-      padding-top: 4.5rem;
-    }
-    #about {
-      gap: 2.2rem;
-    }
+    .stat-item:nth-child(2n) { border-right: none; }
     .section-label {
       gap: 0.7rem;
       font-size: 0.6rem;
@@ -1015,190 +956,42 @@
       line-height: 1.8;
     }
     .about-features {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
-    }
-    .feature-pill {
-      min-height: 100%;
-      padding: 0.9rem 0.85rem;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(26,46,31,0.08);
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
     }
     .rooms-header { margin-bottom: 2.5rem; }
-    .rooms-sub {
-      max-width: none;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: rgba(245,240,232,0.72);
-    }
     .room-card {
-      min-height: 360px;
-      padding: 1.2rem;
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      min-height: 320px;
+      padding: 1.5rem;
     }
     .room-badge {
       top: 1rem;
       right: 1rem;
-      border-radius: 999px;
-      padding: 0.55rem 0.8rem;
-      letter-spacing: 0.14em;
     }
-    .room-info {
-      padding: 1.35rem;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(10,22,14,0.16), rgba(10,22,14,0.82));
-      backdrop-filter: blur(10px);
-    }
-    .room-type {
-      font-size: 0.64rem;
-      letter-spacing: 0.2em;
-    }
-    .room-name {
-      font-size: 1.55rem;
-      line-height: 0.98;
-    }
-    .room-desc {
-      font-size: 0.8rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.74);
-    }
-    .room-price {
-      align-items: flex-end;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-    }
-    .price-num {
-      font-size: 1.8rem;
-      line-height: 1;
-    }
-    .price-unit {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.2rem;
-    }
+    .room-name { font-size: 1.4rem; }
     .amenities-intro { margin-bottom: 2rem; }
     .amenities-grid { grid-template-columns: 1fr; }
     .amenity-item {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      column-gap: 0.95rem;
-      align-items: start;
-      border: 1px solid rgba(26,46,31,0.08);
-      border-radius: 22px;
-      background: rgba(255,255,255,0.82);
-      box-shadow: 0 18px 44px rgba(24,31,24,0.06);
-      border-right: 1px solid rgba(26,46,31,0.08);
-      padding: 1.15rem 1rem;
+      border-right: none;
+      padding: 1.5rem 1.15rem;
     }
-    .amenity-name,
-    .amenity-desc {
-      grid-column: 2;
-    }
-    .amenity-icon {
-      grid-row: 1 / span 2;
-      width: 44px;
-      height: 44px;
-      margin-top: 0.1rem;
-    }
-    .amenity-name {
-      font-size: 0.95rem;
-      margin-bottom: 0.18rem;
-    }
-    .amenity-desc {
-      font-size: 0.8rem;
-      line-height: 1.65;
-    }
-    .location-map {
-      height: 260px;
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: 0 22px 56px rgba(24,31,24,0.08);
-    }
-    .location-details {
-      padding: 1.4rem 1.2rem 1.2rem;
-      border: 1px solid rgba(26,46,31,0.08);
-      border-radius: 24px;
-      background: rgba(255,255,255,0.82);
-      box-shadow: 0 18px 44px rgba(24,31,24,0.06);
-    }
-    .location-body {
-      margin: 1.15rem 0 1.5rem;
-    }
+    .location-map { height: 280px; }
     .location-points li {
       align-items: flex-start;
       line-height: 1.6;
-      padding: 0.85rem 0.95rem;
-      border-radius: 16px;
-      background: rgba(26,46,31,0.04);
     }
     #cta {
-      margin: 0 1.25rem;
-      padding: 2.25rem 1.15rem;
+      padding: 3.25rem 1.25rem;
       gap: 1.5rem;
-      border-radius: 28px;
-      align-items: stretch;
-      justify-content: flex-start;
-      box-shadow: 0 28px 70px rgba(10,22,14,0.18);
     }
     #cta::before { display: none; }
-    .cta-title {
-      font-size: clamp(1.95rem, 8.8vw, 2.8rem);
-      line-height: 1.02;
-    }
     .cta-sub { line-height: 1.7; }
     .cta-actions {
       width: 100%;
       align-items: stretch;
     }
     .cta-phone { text-align: center; }
-    .mobile-bookbar {
-      display: flex;
-      position: fixed;
-      left: 0.85rem;
-      right: 0.85rem;
-      bottom: calc(0.85rem + env(safe-area-inset-bottom));
-      z-index: 120;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.9rem;
-      padding: 0.85rem 0.95rem;
-      border: 1px solid rgba(26,46,31,0.08);
-      border-radius: 22px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 20px 50px rgba(24,31,24,0.16);
-    }
-    .mobile-bookbar-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 0.12rem;
-      min-width: 0;
-    }
-    .mobile-bookbar-label {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .mobile-bookbar-price {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      color: var(--green);
-      line-height: 1;
-    }
-    .mobile-bookbar .btn-primary {
-      flex-shrink: 0;
-      padding: 0.95rem 1.1rem;
-      font-size: 0.66rem;
-      letter-spacing: 0.18em;
-    }
-    footer {
-      gap: 1rem;
-      padding-bottom: 6.6rem;
-    }
+    footer { gap: 1rem; }
     .footer-address,
     .footer-copy { line-height: 1.7; }
   }
@@ -1219,19 +1012,10 @@
     .hero-content {
       left: 1rem;
       right: 1rem;
-      bottom: 0.9rem;
-      padding: 1.15rem 1rem 1rem;
+      bottom: 1.5rem;
     }
-    .hero-title { font-size: clamp(2.2rem, 13vw, 3.2rem); }
-    .about-features { grid-template-columns: 1fr; }
     .stat-num { font-size: 1.8rem; }
     .price-unit { display: block; }
-    .mobile-bookbar {
-      left: 0.65rem;
-      right: 0.65rem;
-      padding: 0.8rem 0.85rem;
-    }
-    .mobile-bookbar-price { font-size: 1.08rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -1278,7 +1062,7 @@
       Where the Valley<br>
       <em>Meets Serenity</em>
     </h1>
-    <p class="hero-sub">A boutique retreat perched above the Manipal hills &mdash; refined hospitality, breathtaking valley views, and unhurried calm.</p>
+    <p class="hero-sub">A boutique retreat perched above the Manipal hills — refined hospitality, breathtaking valley views, and unhurried calm.</p>
     <div class="hero-actions">
       <a href="#cta" class="btn-primary">Reserve Your Stay</a>
       <a href="#rooms" class="btn-ghost">Explore Rooms</a>
@@ -1322,7 +1106,7 @@
   <div class="about-text reveal">
     <div class="section-label">Our Story</div>
     <h2 class="section-title">A Boutique Oasis<br><em>Above the Valley</em></h2>
-    <p class="about-body">Tea Tree Suites was conceived as Manipal's premier boutique retreat &mdash; a place where contemporary comfort and warm, attentive hospitality converge. Every room is designed to frame the natural beauty that surrounds us, from the dramatic valley vistas to the lush canopy of trees.</p>
+    <p class="about-body">Tea Tree Suites was conceived as Manipal's premier boutique retreat — a place where contemporary comfort and warm, attentive hospitality converge. Every room is designed to frame the natural beauty that surrounds us, from the dramatic valley vistas to the lush canopy of trees.</p>
     <p class="about-body">Whether you are here for medical care, academics, or simply to explore coastal Karnataka, we offer a calm, refined sanctuary to return to each evening.</p>
     <div class="about-features">
       <div class="feature-pill"><div class="feature-dot"></div>Valley-facing suites</div>
@@ -1342,7 +1126,7 @@
       <div class="section-label">Accommodations</div>
       <h2 class="section-title" style="color:var(--ivory)">Our <em style="color:var(--gold-light)">Rooms & Suites</em></h2>
     </div>
-    <p class="rooms-sub">Every room is a considered retreat &mdash; spacious, quiet, and designed to make you feel at home in the hills.</p>
+    <p class="rooms-sub">Every room is a considered retreat — spacious, quiet, and designed to make you feel at home in the hills.</p>
   </div>
   <div class="rooms-grid">
     <div class="room-card reveal">
@@ -1353,7 +1137,7 @@
         <div class="room-name">Valley View<br>Deluxe</div>
         <div class="room-desc">Spacious air-conditioned room with panoramic valley views, work desk, flat-screen TV, and private balcony.</div>
         <div class="room-price">
-          <span class="price-num">&#8377;3,500</span>
+          <span class="price-num">₹3,500</span>
           <span class="price-unit">/ night onwards</span>
         </div>
       </div>
@@ -1365,7 +1149,7 @@
         <div class="room-name">Garden Wing<br>Suite</div>
         <div class="room-desc">A serene suite overlooking our landscaped garden, featuring a separate living area, premium linens, and in-room dining.</div>
         <div class="room-price">
-          <span class="price-num">&#8377;5,200</span>
+          <span class="price-num">₹5,200</span>
           <span class="price-unit">/ night onwards</span>
         </div>
       </div>
@@ -1376,9 +1160,9 @@
       <div class="room-info">
         <div class="room-type">Luxury Suite</div>
         <div class="room-name">The Malpe<br>Sunset Suite</div>
-        <div class="room-desc">Our finest accommodation &mdash; dramatic sea view rooms capturing the legendary sunsets of Malpe beach on the horizon.</div>
+        <div class="room-desc">Our finest accommodation — dramatic sea view rooms capturing the legendary sunsets of Malpe beach on the horizon.</div>
         <div class="room-price">
-          <span class="price-num">&#8377;8,500</span>
+          <span class="price-num">₹8,500</span>
           <span class="price-unit">/ night onwards</span>
         </div>
       </div>
@@ -1390,45 +1174,45 @@
 <section id="amenities">
   <div class="section-label reveal">What We Offer</div>
   <h2 class="section-title reveal">Crafted for <em>Comfort</em></h2>
-  <p class="amenities-intro reveal">From a rooftop pool at dusk to a single malt by the fire &mdash; every corner of Tea Tree Suites is designed for unhurried pleasure.</p>
+  <p class="amenities-intro reveal">From a rooftop pool at dusk to a single malt by the fire — every corner of Tea Tree Suites is designed for unhurried pleasure.</p>
   <div class="amenities-grid">
     <div class="amenity-item reveal">
-      <span class="amenity-icon">PL</span>
+      <span class="amenity-icon">🏊</span>
       <div class="amenity-name">Rooftop Pool</div>
       <div class="amenity-desc">Swim against a backdrop of the Manipal hills and open sky.</div>
     </div>
     <div class="amenity-item reveal">
-      <span class="amenity-icon">DN</span>
+      <span class="amenity-icon">🍽️</span>
       <div class="amenity-name">Ginger Spice</div>
       <div class="amenity-desc">Indian & Chinese cuisine, halal options, buffet breakfast daily.</div>
     </div>
     <div class="amenity-item reveal">
-      <span class="amenity-icon">BR</span>
+      <span class="amenity-icon">🥃</span>
       <div class="amenity-name">Bar & Lounge</div>
       <div class="amenity-desc">Curated single malts, cocktails, and an intimate evening ambiance.</div>
     </div>
     <div class="amenity-item reveal">
-      <span class="amenity-icon">SP</span>
+      <span class="amenity-icon">💆</span>
       <div class="amenity-name">Spa & Wellness</div>
       <div class="amenity-desc">Rejuvenating treatments to restore body and mind after a long journey.</div>
     </div>
     <div class="amenity-item reveal">
-      <span class="amenity-icon">GY</span>
+      <span class="amenity-icon">🏋️</span>
       <div class="amenity-name">Fitness Centre</div>
       <div class="amenity-desc">A fully equipped gym to maintain your routine while travelling.</div>
     </div>
     <div class="amenity-item reveal">
-      <span class="amenity-icon">PK</span>
+      <span class="amenity-icon">🅿️</span>
       <div class="amenity-name">Free Parking</div>
       <div class="amenity-desc">Complimentary on-site private parking for all guests.</div>
     </div>
     <div class="amenity-item reveal">
-      <span class="amenity-icon">WF</span>
+      <span class="amenity-icon">📶</span>
       <div class="amenity-name">High-Speed WiFi</div>
       <div class="amenity-desc">Reliable, fast internet throughout the property at no extra charge.</div>
     </div>
     <div class="amenity-item reveal">
-      <span class="amenity-icon">24</span>
+      <span class="amenity-icon">🛎️</span>
       <div class="amenity-name">24-Hr Front Desk</div>
       <div class="amenity-desc">Round-the-clock assistance, luggage storage, and concierge services.</div>
     </div>
@@ -1443,7 +1227,7 @@
   <div class="location-details reveal">
     <div class="section-label">Find Us</div>
     <h2 class="section-title">At the Heart<br><em>of Manipal</em></h2>
-    <p class="location-body">Situated in Vidyaratna Nagar, we are moments away from Manipal's best hospitals, universities, and coastal escapes &mdash; offering unmatched convenience without sacrificing peace.</p>
+    <p class="location-body">Situated in Vidyaratna Nagar, we are moments away from Manipal's best hospitals, universities, and coastal escapes — offering unmatched convenience without sacrificing peace.</p>
     <ul class="location-points">
       <li><div class="loc-dot"></div><span><span class="loc-highlight">1 hr 30 min</span> from Mangaluru International Airport</span></li>
       <li><div class="loc-dot"></div><span><span class="loc-highlight">15 min walk</span> to Manipal University & hospitals</span></li>
@@ -1457,31 +1241,24 @@
 <section id="cta">
   <div class="cta-text reveal">
     <h2 class="cta-title">Ready to Experience<br><em>Tea Tree Suites?</em></h2>
-    <p class="cta-sub">316/30, Ramani Pal Road, Vidyaratna Nagar, Manipal &mdash; 576104</p>
+    <p class="cta-sub">316/30, Ramani Pal Road, Vidyaratna Nagar, Manipal — 576104</p>
   </div>
   <div class="cta-actions reveal">
     <a href="tel:+918202000000" class="btn-large">Book a Room</a>
-    <a href="tel:+918202000000" class="cta-phone">Or call us directly &rarr;</a>
+    <a href="tel:+918202000000" class="cta-phone">Or call us directly →</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<div class="mobile-bookbar">
-  <div class="mobile-bookbar-copy">
-    <span class="mobile-bookbar-label">From</span>
-    <span class="mobile-bookbar-price">&#8377;3,500 / night</span>
-  </div>
-  <a href="#cta" class="btn-primary">Book Now</a>
-</div>
 <footer>
   <div class="footer-logo">Tea Tree <span>Suites</span></div>
   <div class="footer-address">
     316/30, Ramani Pal Road, 2nd Cross<br>
-    Vidyaratna Nagar, Manipal &mdash; 576104<br>
+    Vidyaratna Nagar, Manipal — 576104<br>
     Karnataka, India
   </div>
   <div class="footer-copy">
-    &copy; 2026 Tea Tree Suites<br>
+    © 2026 Tea Tree Suites<br>
     All rights reserved
   </div>
 </footer>
